@@ -1,0 +1,318 @@
+@use '@carbon/styles/scss/themes' as *;
+@use '@carbon/styles/scss/theme' with (
+  $theme: $g10
+);
+@use '@carbon/styles';
+@use '@carbon/styles/scss/spacing' as *;
+@use '@carbon/styles/scss/type' as *;
+
+html,
+body,
+#root {
+  block-size: 100%;
+  min-block-size: 100%;
+  background-color: var(--cds-background, #f4f4f4);
+}
+
+body {
+  margin: 0;
+  background-color: var(--cds-background, #f4f4f4);
+  color: var(--cds-text-primary, #161616);
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+}
+
+.app-main {
+  padding-block: $spacing-09 $spacing-10;
+  padding-inline: $spacing-07;
+  max-inline-size: 100%;
+}
+
+/* ---------------------------------------------------------------
+   Hero — IBM blue accent bar on the leading edge
+   --------------------------------------------------------------- */
+.page-hero.page-hero {
+  position: relative;
+  padding: $spacing-06 $spacing-07;
+  margin-block-end: $spacing-09;
+  background-color: var(--cds-layer, #ffffff);
+  border-left: 4px solid var(--cds-border-interactive, #0f62fe);
+  border-bottom: 1px solid var(--cds-border-subtle, #e0e0e0);
+}
+
+.page-title {
+  margin-block-end: $spacing-03;
+}
+
+.page-subtitle {
+  color: var(--cds-text-secondary);
+  max-inline-size: 44rem;
+  margin-block-end: 0;
+}
+
+/* ---------------------------------------------------------------
+   Section heading — small blue rule underlines each section title
+   --------------------------------------------------------------- */
+.section-heading {
+  display: inline-block;
+  margin-block-end: $spacing-06;
+  padding-block-end: $spacing-03;
+  border-bottom: 2px solid var(--cds-border-interactive, #0f62fe);
+}
+
+.section-divider {
+  block-size: 1px;
+  background-color: var(--cds-border-subtle);
+  margin-block: $spacing-09;
+  border: 0;
+}
+
+/* ---------------------------------------------------------------
+   Benefit tiles — each gets a Carbon accent bar on top
+   --------------------------------------------------------------- */
+.tiles-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: $spacing-05;
+  margin-block-end: $spacing-09;
+
+  @media (max-width: 1055px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 671px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.benefit-tile.benefit-tile {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-block-size: 13rem;
+  block-size: 100%;
+  padding: $spacing-06;
+  background-color: var(--cds-layer, #ffffff);
+  border-top: 3px solid var(--cds-border-interactive, #0f62fe);
+  transition: background-color 110ms ease;
+
+  &:hover {
+    background-color: var(--cds-layer-hover, #e5e5e5);
+  }
+}
+
+.benefit-tile--accent-blue.benefit-tile--accent-blue {
+  border-top-color: #0f62fe; /* Carbon blue-60 */
+
+  .benefit-tile__icon {
+    color: #0f62fe;
+  }
+}
+
+.benefit-tile--accent-teal.benefit-tile--accent-teal {
+  border-top-color: #007d79; /* Carbon teal-60 */
+
+  .benefit-tile__icon {
+    color: #007d79;
+  }
+}
+
+.benefit-tile--accent-purple.benefit-tile--accent-purple {
+  border-top-color: #8a3ffc; /* Carbon purple-60 */
+
+  .benefit-tile__icon {
+    color: #8a3ffc;
+  }
+}
+
+.benefit-tile__icon {
+  margin-block-end: $spacing-05;
+  color: var(--cds-icon-primary);
+}
+
+.benefit-tile__heading {
+  margin-block-end: $spacing-03;
+}
+
+.benefit-tile__body {
+  color: var(--cds-text-secondary);
+  margin-block-end: 0;
+}
+
+/* ---------------------------------------------------------------
+   Form card — IBM blue top accent + layered surface for depth
+   --------------------------------------------------------------- */
+.form-card.form-card {
+  padding: $spacing-07;
+  background-color: var(--cds-layer, #ffffff);
+  border-top: 4px solid var(--cds-border-interactive, #0f62fe);
+  border-left: 1px solid var(--cds-border-subtle, #e0e0e0);
+  border-right: 1px solid var(--cds-border-subtle, #e0e0e0);
+  border-bottom: 1px solid var(--cds-border-subtle, #e0e0e0);
+  margin-block-end: $spacing-09;
+  box-shadow: 0 1px 0 var(--cds-border-subtle, #e0e0e0);
+}
+
+.form-card__header {
+  margin-block-end: $spacing-06;
+  padding-block-end: $spacing-05;
+  border-block-end: 1px solid var(--cds-border-subtle);
+}
+
+.form-card__title {
+  margin-block-end: $spacing-03;
+}
+
+.form-card__description {
+  color: var(--cds-text-secondary);
+  margin-block-end: 0;
+}
+
+.form-actions {
+  margin-block-start: $spacing-07;
+  padding-block-start: $spacing-06;
+  border-block-start: 1px solid var(--cds-border-subtle);
+}
+
+/* ---------------------------------------------------------------
+   Admin header + filter panel
+   --------------------------------------------------------------- */
+.admin-section {
+  margin-block-end: $spacing-09;
+}
+
+.admin-heading-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: $spacing-05;
+  margin-block-end: $spacing-07;
+  padding-block-end: $spacing-06;
+  border-block-end: 1px solid var(--cds-border-subtle);
+}
+
+.admin-heading-actions {
+  display: flex;
+  gap: $spacing-03;
+  flex-wrap: wrap;
+}
+
+.filter-panel.filter-panel {
+  background-color: var(--cds-layer, #ffffff);
+  border-top: 3px solid var(--cds-border-interactive, #0f62fe);
+  border-left: 1px solid var(--cds-border-subtle, #e0e0e0);
+  border-right: 1px solid var(--cds-border-subtle, #e0e0e0);
+  border-bottom: 1px solid var(--cds-border-subtle, #e0e0e0);
+  padding: $spacing-06;
+  margin-block-end: $spacing-07;
+}
+
+.filter-panel__row {
+  display: grid;
+  grid-template-columns: minmax(18rem, 2fr) 1fr 1fr;
+  gap: $spacing-05;
+  align-items: end;
+  margin-block-end: $spacing-05;
+
+  @media (max-width: 1055px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.filter-panel__presets {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $spacing-02;
+  padding-block-start: $spacing-04;
+  border-block-start: 1px solid var(--cds-border-subtle);
+}
+
+.admin-meta {
+  color: var(--cds-text-secondary);
+  margin-block-start: $spacing-02;
+}
+
+/* ---------------------------------------------------------------
+   Empty + detail states
+   --------------------------------------------------------------- */
+.empty-state {
+  padding: $spacing-09 $spacing-07;
+  background-color: var(--cds-layer);
+  border: 1px solid var(--cds-border-subtle);
+  text-align: center;
+}
+
+.empty-state__heading {
+  margin-block-end: $spacing-03;
+}
+
+.empty-state__body {
+  color: var(--cds-text-secondary);
+}
+
+.detail-panel.detail-panel {
+  padding: $spacing-07;
+  background-color: var(--cds-layer, #ffffff);
+  border-top: 3px solid var(--cds-border-interactive, #0f62fe);
+  border-left: 1px solid var(--cds-border-subtle, #e0e0e0);
+  border-right: 1px solid var(--cds-border-subtle, #e0e0e0);
+  border-bottom: 1px solid var(--cds-border-subtle, #e0e0e0);
+  margin-block-start: $spacing-07;
+}
+
+.detail-panel__title {
+  margin-block-end: $spacing-02;
+}
+
+.detail-panel__meta {
+  color: var(--cds-text-secondary);
+  margin-block-end: $spacing-06;
+  padding-block-end: $spacing-05;
+  border-block-end: 1px solid var(--cds-border-subtle);
+}
+
+.detail-panel__label {
+  color: var(--cds-text-secondary);
+  margin-block-end: $spacing-03;
+}
+
+.detail-panel__text {
+  margin-block-end: $spacing-06;
+  white-space: pre-wrap;
+}
+
+.detail-panel__text:last-child {
+  margin-block-end: 0;
+}
+
+.credentials-hint {
+  margin-block-start: $spacing-05;
+  padding: $spacing-04 $spacing-05;
+  background-color: var(--cds-layer-accent, #e0e0e0);
+  border-left: 2px solid var(--cds-border-interactive, #0f62fe);
+}
+
+.credentials-hint__label {
+  color: var(--cds-text-secondary);
+  margin-block-end: $spacing-02;
+}
+
+.credentials-hint code {
+  font-family: var(--cds-code-01-font-family, 'IBM Plex Mono', monospace);
+}
+
+.row-delete-cell {
+  inline-size: 3rem;
+  text-align: end;
+}
+
+.notification-region {
+  position: fixed;
+  inset-block-start: 4rem;
+  inset-inline-end: $spacing-05;
+  z-index: 9000;
+}
